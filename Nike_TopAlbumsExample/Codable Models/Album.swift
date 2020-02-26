@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Album: Codable {
+public struct Album: Decodable {
 	public let name: String
 	public let artistName: String
 	public let copyright: String
@@ -38,7 +38,7 @@ extension Album {
 		copyright = try container.decode(String.self, forKey: .copyright)
 		artworkURL = try container.decode(URL.self, forKey: .artworkURL)
 		
-		// Instructions call for single-valued "genre" property, so we retrieve the name of first genre in array
+		// Per instructions, genre is to be a single value
 		let genres = try container.decode([Genre].self, forKey: .genre)
 		guard let firstGenre = genres.first else {
 			throw DecodingError.dataCorruptedError(forKey: .genre, in: container, debugDescription: "Required genre missing in RSS feed.")

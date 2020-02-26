@@ -17,8 +17,6 @@
 		D3972B2524059BE60033A964 /* FeedContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3972B2424059BE60033A964 /* FeedContent.swift */; };
 		D3972B2924059D160033A964 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3972B2824059D160033A964 /* Genre.swift */; };
 		D3972DEE2405A8AE0033A964 /* DateFormatter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3972DED2405A8AE0033A964 /* DateFormatter+.swift */; };
-		D3972DF12405B9AF0033A964 /* QueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3972DF02405B9AF0033A964 /* QueryService.swift */; };
-		D3972DF52405C7250033A964 /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3972DF42405C7250033A964 /* Testing.swift */; };
 		D3972DF72405F4640033A964 /* RSSFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3972DF62405F4640033A964 /* RSSFeed.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,8 +33,6 @@
 		D3972B2424059BE60033A964 /* FeedContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedContent.swift; sourceTree = "<group>"; };
 		D3972B2824059D160033A964 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		D3972DED2405A8AE0033A964 /* DateFormatter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+.swift"; sourceTree = "<group>"; };
-		D3972DF02405B9AF0033A964 /* QueryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryService.swift; sourceTree = "<group>"; };
-		D3972DF42405C7250033A964 /* Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Testing.swift; sourceTree = "<group>"; };
 		D3972DF62405F4640033A964 /* RSSFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSFeed.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,7 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				D3972DEF2405B99D0033A964 /* Networking */,
-				D3972B1C24059AFA0033A964 /* Models */,
+				D3972B1C24059AFA0033A964 /* Codable Models */,
 				D3972B1D24059B0C0033A964 /* Views */,
 				D3972B1E24059B120033A964 /* Controllers */,
 				D3972DEC2405A89F0033A964 /* Extensions */,
@@ -80,7 +76,7 @@
 			path = Nike_TopAlbumsExample;
 			sourceTree = "<group>";
 		};
-		D3972B1C24059AFA0033A964 /* Models */ = {
+		D3972B1C24059AFA0033A964 /* Codable Models */ = {
 			isa = PBXGroup;
 			children = (
 				D3972DF62405F4640033A964 /* RSSFeed.swift */,
@@ -88,7 +84,7 @@
 				D3972B2224059B9B0033A964 /* Album.swift */,
 				D3972B2824059D160033A964 /* Genre.swift */,
 			);
-			path = Models;
+			path = "Codable Models";
 			sourceTree = "<group>";
 		};
 		D3972B1D24059B0C0033A964 /* Views */ = {
@@ -130,8 +126,6 @@
 		D3972DEF2405B99D0033A964 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				D3972DF02405B9AF0033A964 /* QueryService.swift */,
-				D3972DF42405C7250033A964 /* Testing.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -209,10 +203,8 @@
 			files = (
 				D3972B0D24059A980033A964 /* ViewController.swift in Sources */,
 				D3972DF72405F4640033A964 /* RSSFeed.swift in Sources */,
-				D3972DF52405C7250033A964 /* Testing.swift in Sources */,
 				D3972B2524059BE60033A964 /* FeedContent.swift in Sources */,
 				D3972DEE2405A8AE0033A964 /* DateFormatter+.swift in Sources */,
-				D3972DF12405B9AF0033A964 /* QueryService.swift in Sources */,
 				D3972B0924059A980033A964 /* AppDelegate.swift in Sources */,
 				D3972B0B24059A980033A964 /* SceneDelegate.swift in Sources */,
 				D3972B2324059B9B0033A964 /* Album.swift in Sources */,

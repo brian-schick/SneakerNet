@@ -1,5 +1,5 @@
 //
-//  RSSFeed.swift
+//  FeedContent.swift
 //  Nike_TopAlbumsExample
 //
 //  Created by Brian Schick on 2/25/20.
@@ -8,14 +8,14 @@
 
 import Foundation
 
-public struct RSSFeed: Codable {
-	let feedContent: FeedContent
+public struct FeedContent: Decodable {
+	public let albums: [Album]
 }
 
 
 // MARK: - Coding Keys
-extension RSSFeed {
+extension FeedContent {
 	private enum CodingKeys: String, CodingKey {
-		case feedContent = "feed"
+		case albums = "results"
 	}
 }
