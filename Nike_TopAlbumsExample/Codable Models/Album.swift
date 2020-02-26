@@ -13,6 +13,7 @@ public struct Album: Decodable {
 	public let artistName: String
 	public let copyright: String
 	public let releaseDate: Date
+	public let albumURL: URL
 	public let artworkURL: URL
 	public let genre: String
 }
@@ -22,6 +23,7 @@ public struct Album: Decodable {
 extension Album {
 	private enum CodingKeys: String, CodingKey {
 		case artistName, copyright, releaseDate, name
+		case albumURL = "url"
 		case artworkURL = "artworkUrl100"
 		case genre = "genres"
 	}
@@ -36,6 +38,7 @@ extension Album {
 		name = try container.decode(String.self, forKey: .name)
 		artistName = try container.decode(String.self, forKey: .artistName)
 		copyright = try container.decode(String.self, forKey: .copyright)
+		albumURL = try container.decode(URL.self, forKey: .albumURL)
 		artworkURL = try container.decode(URL.self, forKey: .artworkURL)
 		
 		// Per instructions, genre is to be a single value
