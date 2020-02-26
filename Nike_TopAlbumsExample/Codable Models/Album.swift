@@ -44,7 +44,7 @@ extension Album {
 		// Per instructions, genre is to be a single value
 		let genres = try container.decode([Genre].self, forKey: .genre)
 		guard let firstGenre = genres.first else {
-			throw DecodingError.dataCorruptedError(forKey: .genre, in: container, debugDescription: "Required genre missing in RSS feed.")
+			throw DecodingError.dataCorruptedError(forKey: .genre, in: container, debugDescription: "RSS: Required genre missing.")
 		}
 		genre = firstGenre.name
 		
@@ -52,7 +52,7 @@ extension Album {
 			let dateString = try? container.decode(String.self, forKey: .releaseDate),
 			let date = DateFormatter.yyyyMMdd.date(from: dateString)
 			else {
-				throw DecodingError.dataCorruptedError(forKey: .releaseDate, in: container, debugDescription: "Invalid date found in RSS feed.")
+				throw DecodingError.dataCorruptedError(forKey: .releaseDate, in: container, debugDescription: "RSS: Invalid data.")
 		}
 		releaseDate = date
 	}
