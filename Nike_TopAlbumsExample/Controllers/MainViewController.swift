@@ -11,18 +11,17 @@ import UIKit
 class MainViewController: UIViewController {
 	
 	let REUSE_IDENTIFIER = "nikeExample"
+	
 	var tableView: UITableView!
 	var albums: [Album]!
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
 		mockData()
 		layoutObjects()
 	}
 
-	
-
+// MARK: - Private Methods
 	private func layoutObjects() {
 		tableView = UITableView(frame: self.view.bounds, style: UITableView.Style.plain)
 		tableView.register(MainTableViewCell.self, forCellReuseIdentifier: REUSE_IDENTIFIER)
@@ -31,28 +30,19 @@ class MainViewController: UIViewController {
 		
 		tableView.translatesAutoresizingMaskIntoConstraints = false
 		tableView.tableFooterView = UIView()
-		let insets = UIEdgeInsets(top: 20.0, left: 0.0, bottom: 0.0, right: 0.0)
-		tableView.contentInset = insets
-		tableView.scrollIndicatorInsets = insets
-//		tableView.rowHeight = 80
+
 		view.addSubview(tableView)
 	}
 	
 	private func mockData() {
-		let album1 = Album(name: "First Album, which has quite a long name, which presents interesting issues", artistName: "Bob", copyright: "℗ 2020 Never Broke Again, LLC", releaseDate: Date(), albumURL: URL(string: "https://spoof.com")!, artworkURL: URL(string: "https://spoof.com")!, genre: "Hippity Hop")
-		self.albums = [album1]
+		let album1 = Album(name: "First Album, which has quite a long name, which presents interesting issues", artistName: "Bob", copyright: "℗ 2020 Never Broke Again, LLC", releaseDate: Date(), albumURL: URL(string: "https://music.apple.com/us/album/still-flexin-still-steppin/1498288784?app=music")!, artworkURL: URL(string: "https://spoof.com")!, genre: "Hippity Hop")
+		let album2 = Album(name: "First Album, which has quite a long name, which presents interesting issues", artistName: "Bob", copyright: "℗ 2020 Never Broke Again, LLC", releaseDate: Date(), albumURL: URL(string: "https://music.apple.com/us/album/still-flexin-still-steppin/1498288784?app=music")!, artworkURL: URL(string: "https://spoof.com")!, genre: "Hippity Hop")
+		let album3 = Album(name: "First Album, which has quite a long name, which presents interesting issues", artistName: "Bob", copyright: "℗ 2020 Never Broke Again, LLC", releaseDate: Date(), albumURL: URL(string: "https://music.apple.com/us/album/still-flexin-still-steppin/1498288784?app=music")!, artworkURL: URL(string: "https://spoof.com")!, genre: "Hippity Hop")
+		self.albums = [album1, album2, album3]
 	}
-	
-	
-	
-
 }
 
-
-
-
-
-// MARK: - TableView Conformance
+// MARK: - Table View Delegate
 extension MainViewController: UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -63,6 +53,7 @@ extension MainViewController: UITableViewDelegate {
 	}
 }
 
+// MARK: - Table View Data Source
 extension MainViewController: UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -92,5 +83,9 @@ extension MainViewController: UITableViewDataSource {
 		cell.albumImage.image = UIImage(named: "tempImage")
 		
 		return cell
+	}
+	
+	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+		return "Top 100 Albums : All Genres"
 	}
 }
