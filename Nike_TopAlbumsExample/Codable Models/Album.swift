@@ -12,10 +12,10 @@ public struct Album: Decodable {
 	public let name: String
 	public let artistName: String
 	public let copyright: String
-	public let releaseDate: Date
 	public let albumURL: URL
 	public let artworkURL: URL
 	public let genre: String
+	public let releaseDate: Date
 }
 
 
@@ -33,6 +33,11 @@ extension Album {
 // MARK: - Custom Decoder
 extension Album {
 	public init(from decoder: Decoder) throws {
+		
+		struct Genre: Decodable {
+			public let name: String
+		}
+		
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		
 		name = try container.decode(String.self, forKey: .name)

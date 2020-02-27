@@ -30,22 +30,14 @@ class MainTableViewCell: UITableViewCell {
 		contentView.addSubview(albumImage)
 		
 		var constraints: [NSLayoutConstraint] = []
-		constraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|-[albumImage(50@750)]-[albumName]-|", options: [], metrics: nil, views: views)
-		constraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|-[albumImage(50@750)]-[artistName]-|", options: [], metrics: nil, views: views)
-		constraints += NSLayoutConstraint.constraints(withVisualFormat: "V:|-[albumImage]-|", options: [], metrics: nil, views: views)
+		constraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|-[albumImage(60)]-[albumName]-|", options: [], metrics: nil, views: views)
+		constraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|-[albumImage]-[artistName]-|", options: [], metrics: nil, views: views)
+		constraints += NSLayoutConstraint.constraints(withVisualFormat: "V:|-[albumImage(60@750)]-|", options: [], metrics: nil, views: views)
 		constraints += NSLayoutConstraint.constraints(withVisualFormat: "V:|-[albumName]-[artistName]-|", options: [], metrics: nil, views: views)
-		
-		albumImage.widthAnchor.constraint(equalTo: albumImage.heightAnchor, multiplier: 1.0).isActive = true
-		
 		NSLayoutConstraint.activate(constraints)
 	}
 	
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
-	}
-	
-//	override func setSelected(_ selected: Bool, animated: Bool) {
-//		super.setSelected(selected, animated: animated)
-//		MainViewController.presentDetailView(<#T##self: MainViewController##MainViewController#>)
-//	}
+	}	
 }

@@ -35,9 +35,9 @@ class MainViewController: UIViewController {
 	}
 	
 	private func mockData() {
-		let album1 = Album(name: "First Album, which has quite a long name, which presents interesting issues", artistName: "Bob", copyright: "℗ 2020 Never Broke Again, LLC", releaseDate: Date(), albumURL: URL(string: "https://music.apple.com/us/album/still-flexin-still-steppin/1498288784?app=music")!, artworkURL: URL(string: "https://spoof.com")!, genre: "Hippity Hop")
-		let album2 = Album(name: "First Album, which has quite a long name, which presents interesting issues", artistName: "Bob", copyright: "℗ 2020 Never Broke Again, LLC", releaseDate: Date(), albumURL: URL(string: "https://music.apple.com/us/album/still-flexin-still-steppin/1498288784?app=music")!, artworkURL: URL(string: "https://spoof.com")!, genre: "Hippity Hop")
-		let album3 = Album(name: "First Album, which has quite a long name, which presents interesting issues", artistName: "Bob", copyright: "℗ 2020 Never Broke Again, LLC", releaseDate: Date(), albumURL: URL(string: "https://music.apple.com/us/album/still-flexin-still-steppin/1498288784?app=music")!, artworkURL: URL(string: "https://spoof.com")!, genre: "Hippity Hop")
+		let album1 = Album(name: "First Album, which has quite a long name, which presents interesting issues", artistName: "Bob", copyright: "℗ 2020 Never Broke Again, LLC", albumURL: URL(string: "https://music.apple.com/us/album/still-flexin-still-steppin/1498288784?app=music")!, artworkURL: URL(string: "https://spoof.com")!, genre: "Hippity Hop", releaseDate: Date())
+		let album2 = Album(name: "Another Album", artistName: "Bob", copyright: "℗ 2020 Never Broke Again, LLC", albumURL: URL(string: "https://music.apple.com/us/album/still-flexin-still-steppin/1498288784?app=music")!, artworkURL: URL(string: "https://spoof.com")!, genre: "Hippity Hop", releaseDate: Date())
+		let album3 = Album(name: "El Très", artistName: "Bob", copyright: "℗ 2020 Never Broke Again, LLC", albumURL: URL(string: "https://music.apple.com/us/album/still-flexin-still-steppin/1498288784?app=music")!, artworkURL: URL(string: "https://spoof.com")!, genre: "Hippity Hop", releaseDate: Date())
 		self.albums = [album1, album2, album3]
 	}
 }

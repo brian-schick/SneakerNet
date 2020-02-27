@@ -95,7 +95,7 @@ class DetailViewController: UIViewController {
 		albumImageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
 		albumImageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
 		
-		// per spec, pin 20 points from view's leading/trailing and bottom edges
+		// per spec, pin button 20 points from view's leading/trailing and bottom edges
 		viewButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
 		viewButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
 		viewButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
