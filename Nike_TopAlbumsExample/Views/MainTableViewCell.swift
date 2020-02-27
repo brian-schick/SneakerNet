@@ -30,8 +30,8 @@ class MainTableViewCell: UITableViewCell {
 		contentView.addSubview(albumImage)
 		
 		var constraints: [NSLayoutConstraint] = []
-		constraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|-[albumImage]-[albumName]-|", options: [], metrics: nil, views: views)
-		constraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|-[albumImage]-[artistName]-|", options: [], metrics: nil, views: views)
+		constraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|-[albumImage(50@750)]-[albumName]-|", options: [], metrics: nil, views: views)
+		constraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|-[albumImage(50@750)]-[artistName]-|", options: [], metrics: nil, views: views)
 		constraints += NSLayoutConstraint.constraints(withVisualFormat: "V:|-[albumImage]-|", options: [], metrics: nil, views: views)
 		constraints += NSLayoutConstraint.constraints(withVisualFormat: "V:|-[albumName]-[artistName]-|", options: [], metrics: nil, views: views)
 		
