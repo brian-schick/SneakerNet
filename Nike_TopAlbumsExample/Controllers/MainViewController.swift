@@ -12,12 +12,11 @@ class MainViewController: UIViewController {
 	
 	let REUSE_IDENTIFIER = "nikeExample"
 	
-	var tableView: UITableView!
-	var albums: [Album]!
+	public var tableView: UITableView!
+	public var albums: [Album]!
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		mockData()
 		layoutObjects()
 	}
 
@@ -32,13 +31,6 @@ class MainViewController: UIViewController {
 		tableView.tableFooterView = UIView()
 
 		view.addSubview(tableView)
-	}
-	
-	private func mockData() {
-		let album1 = Album(name: "First Album, which has quite a long name, which presents interesting issues", artistName: "Bob", copyright: "℗ 2020 Never Broke Again, LLC", albumURL: URL(string: "https://music.apple.com/us/album/still-flexin-still-steppin/1498288784?app=music")!, artworkURL: URL(string: "https://spoof.com")!, genre: "Hippity Hop", releaseDate: Date())
-		let album2 = Album(name: "Another Album", artistName: "Bob", copyright: "℗ 2020 Never Broke Again, LLC", albumURL: URL(string: "https://music.apple.com/us/album/still-flexin-still-steppin/1498288784?app=music")!, artworkURL: URL(string: "https://spoof.com")!, genre: "Hippity Hop", releaseDate: Date())
-		let album3 = Album(name: "El Très", artistName: "Bob", copyright: "℗ 2020 Never Broke Again, LLC", albumURL: URL(string: "https://music.apple.com/us/album/still-flexin-still-steppin/1498288784?app=music")!, artworkURL: URL(string: "https://spoof.com")!, genre: "Hippity Hop", releaseDate: Date())
-		self.albums = [album1, album2, album3]
 	}
 }
 
@@ -73,6 +65,7 @@ extension MainViewController: UITableViewDataSource {
 		let tempView = UIImageView()
 		
 		tempView.backgroundColor = .red
+		cell.textLabel?.text = ""
 		cell.albumName.text = album.name
 		cell.albumName.font = cell.albumName.font.withSize(16)
 		cell.albumName.numberOfLines = 2

@@ -33,26 +33,24 @@ extension Album {
 // MARK: - Custom Decoder
 extension Album {
 	public init(from decoder: Decoder) throws {
-		
-		struct Genre: Decodable {
-			public let name: String
-		}
-		
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		
+		// Retrieve simple valuesd
 		name = try container.decode(String.self, forKey: .name)
 		artistName = try container.decode(String.self, forKey: .artistName)
 		copyright = try container.decode(String.self, forKey: .copyright)
 		albumURL = try container.decode(URL.self, forKey: .albumURL)
 		artworkURL = try container.decode(URL.self, forKey: .artworkURL)
 		
-		// Per instructions, genre is to be a single value
+		// Per spec, retrieve genre as single-valued String
+		struct Genre: Decodable { let name: String }
 		let genres = try container.decode([Genre].self, forKey: .genre)
 		guard let firstGenre = genres.first else {
 			throw DecodingError.dataCorruptedError(forKey: .genre, in: container, debugDescription: "RSS: Required genre missing.")
 		}
 		genre = firstGenre.name
 		
+		// Retrieve date from yyyy-MM-dd-formatted String
 		guard
 			let dateString = try? container.decode(String.self, forKey: .releaseDate),
 			let date = DateFormatter.yyyyMMdd.date(from: dateString)
