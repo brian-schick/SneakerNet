@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController {
 	
 	var album: Album!
 	
@@ -17,17 +17,17 @@ class DetailViewController: UIViewController {
 		layoutObjects()
 	}
 	
-	
 	@objc func viewButtonTapped() {
+	
 		/*
 		NOTE: There are 2 issues here that I cannot address within exercise scope but should note:
 		
-		1. Calling 'open()` raises a "Can't end BackgroundTask" error both in simulator and on device
-		This appears to be a continuing iOS 13 bug, per https://forums.developer.apple.com/thread/121990
+		1. Calling 'open()` results in a logged "Can't end BackgroundTask" error both in simulator and on device
+		This appears to be an ongoing iOS 13 bug (e.g., see https://forums.developer.apple.com/thread/121990)
 		
 		2. Per the spec provided, this functionality should open the album page "in the iTunes Store."
 		In the simulator, this fails with OSStatus error -10814: "kLSApplicationNotFoundErr".
-		I believe the error is caused quite simply because the iTunes Store is absent on the simulator.
+		This appears to be caused simply because the iTunes Store app is absent on the simulator.
 		This works without isue on device, provided that the iTunes Store app is installed.
 		*/
 		

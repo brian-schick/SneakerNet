@@ -10,7 +10,7 @@ import UIKit
 
 typealias CachedImageLoader = ((UIImage) -> ())
 
-class ImageCache {
+public final class ImageCache {
 	
 	private static var cached = [URL : UIImage]()
 	

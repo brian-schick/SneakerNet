@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainTableViewCell: UITableViewCell {
+final public class MainTableViewCell: UITableViewCell {
 	
 	public let REUSE_IDENTIFIER = "nikeExample"
 

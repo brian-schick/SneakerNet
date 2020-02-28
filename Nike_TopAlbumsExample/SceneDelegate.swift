@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		window?.windowScene = windowScene
 		
 //		FeedData.mock(for: mainViewController)
-		FeedData.inject(into: mainViewController)
+		RSSAlbumsService.inject(into: mainViewController)
 	}
 
 	func sceneDidDisconnect(_ scene: UIScene) { }
