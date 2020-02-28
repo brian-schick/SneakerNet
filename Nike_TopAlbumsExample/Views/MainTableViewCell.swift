@@ -21,6 +21,10 @@ final public class MainTableViewCell: UITableViewCell {
 		
 		let views = ["albumName" : albumName, "artistName" : artistName, "albumImage" : albumImage]
 		
+		albumName.accessibilityIdentifier = "Album name"
+		artistName.accessibilityIdentifier = "Artist name"
+		albumImage.accessibilityIdentifier = "Album image"
+
 		albumName.translatesAutoresizingMaskIntoConstraints = false
 		artistName.translatesAutoresizingMaskIntoConstraints = false
 		albumImage.translatesAutoresizingMaskIntoConstraints = false

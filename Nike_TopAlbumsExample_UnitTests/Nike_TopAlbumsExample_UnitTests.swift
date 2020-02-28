@@ -12,12 +12,8 @@ import XCTest
 
 class Nike_TopAlbumsExample_UnitTests: XCTestCase {
 	
-	/*
-	PLEASE NOTE: For example purposes, no common setup/teardown steps have particular value
-	*/
 	
-	
-	// MARK: - Model and Service Tests
+	// MARK: - Mock Data Tests
 	func test_mockRSS_feedContentNotNil() {
 		let mockRSSFeed = RSSFeed.mockData()
 		let mockData = try! JSONEncoder().encode(mockRSSFeed)
@@ -42,6 +38,8 @@ class Nike_TopAlbumsExample_UnitTests: XCTestCase {
 		XCTAssertEqual(decodedFeed?.feedContent.albums.last?.name, "El Très")
 	}
 	
+	
+	// MARK: - Live Data Tests
 	func test_liveFeed_liveDataRetrieved() {
 		let expectation = XCTestExpectation(description: "Wait for injection")
 		let feedURL = RSSService.feedURL
@@ -92,6 +90,7 @@ class Nike_TopAlbumsExample_UnitTests: XCTestCase {
 }
 
 
+
 // MARK: - Date Formatter Tests
 func test_dateFormatter_yyyyMMdd_dateCorrect() {
 	let dateString = "2020-06-15"
@@ -138,8 +137,6 @@ func test_mainViewController_mockData_secondRowHasExpectedArtistName() {
 
 
 
-
-
 // MARK: - DetailViewController Tests
 func test_detailViewController_noData_expectedItemsNilAndEmpty() {
 	let detailViewController = DetailViewController()
@@ -177,7 +174,6 @@ func test_detailViewController_mockdata_hasImageViewControlAndImage() {
 	XCTAssertNotNil(stackView.subviews.first as? UIImageView)
 	XCTAssertNotNil((stackView.subviews.first as? UIImageView)?.image)
 }
-
 
 
 

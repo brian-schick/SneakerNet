@@ -31,6 +31,7 @@ final class MainViewController: UIViewController {
 		
 		tableView.translatesAutoresizingMaskIntoConstraints = false
 		tableView.tableFooterView = UIView()
+		tableView.accessibilityIdentifier = "Albums Table View"
 		view.addSubview(tableView)
 		
 		let views = ["tableView" : tableView!]
@@ -91,6 +92,8 @@ extension MainViewController: UITableViewDataSource {
 		ImageCache.image(for: album.artworkURL) { image in
 			cell.albumImage.image = image
 		}
+		
+		cell.accessibilityIdentifier = "Table row for \(album.name)"
 		
 		return cell
 	}

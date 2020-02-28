@@ -9,7 +9,7 @@
 import Foundation
 
 /*
-	PLEASE NOTE: Although app functionality requires on Decodable,
+	PLEASE NOTE: Although app functionality requires only Decodable,
 	All Model structs are conformed to Codable to ease sample unit tests against mocks.
 */
 

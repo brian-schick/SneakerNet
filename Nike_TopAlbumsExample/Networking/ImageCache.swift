@@ -12,7 +12,7 @@ typealias CachedImageLoader = ((UIImage) -> ())
 
 public final class ImageCache {
 	
-	private static var cached = [URL : UIImage]()
+	private static var cached: [URL : UIImage] = [:]
 	
 	public static func image(for url: URL, completionHandler: @escaping (UIImage) -> Void) {
 		

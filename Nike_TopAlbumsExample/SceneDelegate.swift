@@ -24,8 +24,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		
 		/*
 		PLEASE NOTE:
-		For the sake of time, I'm hard wiring thi to the Main View Controller
-		In practivce, it would likely be preferable to use a Protocol instead
+		For the sake of time, I'm hard wiring this to the Main View Controller
+		In practivce, we'd presumably leverage a Protocol instead
 		*/
 		
 		RSSService.inject(into: mainViewController)
