@@ -8,7 +8,12 @@
 
 import Foundation
 
-public struct FeedContent: Decodable {
+/*
+	PLEASE NOTE: Although app functionality requires on Decodable,
+	All Model structs are conformed to Codable to ease sample unit tests against mocks.
+*/
+
+public struct FeedContent: Codable {
 	public let albums: [Album]
 }
 

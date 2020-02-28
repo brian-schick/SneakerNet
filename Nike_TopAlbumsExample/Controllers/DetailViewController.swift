@@ -42,9 +42,13 @@ final class DetailViewController: UIViewController {
 		UIApplication.shared.open(url)
 	}
 	
+	/*
+	PLEASE NOTE:
+	This method is set to internal access for ease of example unit (rather than more expensive UI) testing
+	*/
 	
-	// MARK: - Private Methods
-	private func layoutObjects() {
+	// MARK: - Internal Methods
+	internal func layoutObjects() {
 		guard let album = album else { return }
 		view.backgroundColor = .systemBackground
 		
@@ -65,7 +69,7 @@ final class DetailViewController: UIViewController {
 		artistLabel.numberOfLines = 0
 		
 		let genreLabel = UILabel()
-		genreLabel.text = "Genre: \(album.genre)"
+		genreLabel.text = "Genre: \(album.genre ?? "")"
 		genreLabel.font = genreLabel.font.withSize(15)
 		
 		let releaseLabel = UILabel()

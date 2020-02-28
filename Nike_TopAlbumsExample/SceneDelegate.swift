@@ -22,8 +22,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		window?.makeKeyAndVisible()
 		window?.windowScene = windowScene
 		
-//		FeedData.mock(for: mainViewController)
-		RSSAlbumsService.inject(into: mainViewController)
+		/*
+		PLEASE NOTE:
+		For the sake of time, I'm hard wiring thi to the Main View Controller
+		In practivce, it would likely be preferable to use a Protocol instead
+		*/
+		
+		RSSService.inject(into: mainViewController)
 	}
 
 	func sceneDidDisconnect(_ scene: UIScene) { }

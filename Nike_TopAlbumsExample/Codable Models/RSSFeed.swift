@@ -8,13 +8,18 @@
 
 import Foundation
 
-public struct RSSFeed: Decodable {
+/*
+	PLEASE NOTE: Although app functionality requires on Decodable,
+	All Model structs are conformed to Codable to ease sample unit tests against mocks.
+*/
+
+public struct RSSFeed: Codable {
 	let feedContent: FeedContent
 }
 
-
 // MARK: - Coding Keys
 extension RSSFeed {
+	
 	private enum CodingKeys: String, CodingKey {
 		case feedContent = "feed"
 	}

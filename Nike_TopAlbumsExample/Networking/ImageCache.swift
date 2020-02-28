@@ -28,7 +28,9 @@ public final class ImageCache {
 				error == nil,
 				let data = data,
 				let image = UIImage(data: data)
-			else { return }
+			else {
+				return
+			}
 			
 			cached[url] = image
 			DispatchQueue.main.async {

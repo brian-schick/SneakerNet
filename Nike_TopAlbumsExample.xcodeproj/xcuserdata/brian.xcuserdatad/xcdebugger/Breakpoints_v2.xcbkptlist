@@ -3,4 +3,54 @@
    uuid = "7D065C32-0522-4B8A-A21C-4181ABDE2D2C"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B68EAE2C-4D75-4ABF-B6FB-4F6A3512AA3D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nike_TopAlbumsExample/Networking/RSSService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "decode(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B68EAE2C-4D75-4ABF-B6FB-4F6A3512AA3D - 2faee7ac8c8bd9ef"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Nike_TopAlbumsExample.RSSService.decode(Foundation.Data) throws -&gt; Nike_TopAlbumsExample.RSSFeed"
+                  moduleName = "Nike_TopAlbumsExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brian/Desktop/Nike_TopAlbumsExample/Nike_TopAlbumsExample/Networking/RSSService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "562">
+               </Location>
+               <Location
+                  uuid = "B68EAE2C-4D75-4ABF-B6FB-4F6A3512AA3D - 2faee7ac8c8bd9ef"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Nike_TopAlbumsExample.RSSService.decode(Foundation.Data) throws -&gt; Nike_TopAlbumsExample.RSSFeed"
+                  moduleName = "Nike_TopAlbumsExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brian/Desktop/Nike_TopAlbumsExample/Nike_TopAlbumsExample/Networking/RSSService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "630">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
