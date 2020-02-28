@@ -14,14 +14,16 @@ class MainViewController: UIViewController {
 	
 	public var tableView: UITableView!
 	public var albums: [Album]!
-
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		layoutObjects()
 	}
-
-// MARK: - Private Methods
+	
+	// MARK: - Private Methods
 	private func layoutObjects() {
+		view.backgroundColor = .systemBackground
+		
 		tableView = UITableView(frame: self.view.bounds, style: UITableView.Style.plain)
 		tableView.register(MainTableViewCell.self, forCellReuseIdentifier: REUSE_IDENTIFIER)
 		tableView.dataSource = self
@@ -29,8 +31,13 @@ class MainViewController: UIViewController {
 		
 		tableView.translatesAutoresizingMaskIntoConstraints = false
 		tableView.tableFooterView = UIView()
-
 		view.addSubview(tableView)
+		
+		let views = ["tableView" : tableView!]
+		var constraints: [NSLayoutConstraint] = []
+		constraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|[tableView]|", options: [], metrics: nil, views: views)
+		constraints += NSLayoutConstraint.constraints(withVisualFormat: "V:|-[tableView]-|", options: [], metrics: nil, views: views)
+		NSLayoutConstraint.activate(constraints)
 	}
 }
 
@@ -54,26 +61,36 @@ extension MainViewController: UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		
+		// If albums not yet injected, display single "Fetching..." row and return immediately
 		guard albums != nil else {
 			let cell = tableView.dequeueReusableCell(withIdentifier: REUSE_IDENTIFIER, for: indexPath)
 			cell.textLabel?.text = "Fetching Data…"
 			return cell
 		}
 		
+		// Configure album cell
 		let cell = tableView.dequeueReusableCell(withIdentifier: REUSE_IDENTIFIER, for: indexPath) as! MainTableViewCell
 		let album = albums[indexPath.row]
-		let tempView = UIImageView()
 		
-		tempView.backgroundColor = .red
+		// Clear "Fetching..." text if present
 		cell.textLabel?.text = ""
+		
+		// Album Name
 		cell.albumName.text = album.name
 		cell.albumName.font = cell.albumName.font.withSize(16)
 		cell.albumName.numberOfLines = 2
+		
+		// Artist Name
 		cell.artistName.text = album.artistName
 		cell.artistName.font = cell.artistName.font.withSize(14)
-		cell.albumName.numberOfLines = 2
-
-		cell.albumImage.image = UIImage(named: "tempImage")
+		cell.artistName.numberOfLines = 2
+		
+		// Album Image
+		cell.albumImage.image = UIImage(named: "placeholderImage")
+		ImageCache.image(for: album.artworkURL) { image in
+			cell.albumImage.image = image
+		}
 		
 		return cell
 	}

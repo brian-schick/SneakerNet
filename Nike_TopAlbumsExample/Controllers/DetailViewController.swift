@@ -19,13 +19,26 @@ class DetailViewController: UIViewController {
 	
 	
 	@objc func viewButtonTapped() {
-		// TODO: `open()` raises a "Can't end BackgroundTask" error per https://forums.developer.apple.com/thread/121990
-		// This appears to be an iOS 13 bug - I'm not pursuing this for purposes of this exercise
+		/*
+		NOTE: There are 2 issues here that I cannot address within exercise scope but should note:
+		
+		1. Calling 'open()` raises a "Can't end BackgroundTask" error both in simulator and on device
+		This appears to be a continuing iOS 13 bug, per https://forums.developer.apple.com/thread/121990
+		
+		2. Per the spec provided, this functionality should open the album page "in the iTunes Store."
+		In the simulator, this fails with OSStatus error -10814: "kLSApplicationNotFoundErr".
+		I believe the error is caused quite simply because the iTunes Store is absent on the simulator.
+		This works without isue on device, provided that the iTunes Store app is installed.
+		*/
 		
 		let itunesStorePrefix = "itms://itunes.apple.com/"
 		let albumSuffix = album.albumURL.pathComponents.dropFirst().joined(separator: "/")
-		guard let url = URL(string: itunesStorePrefix + albumSuffix), UIApplication.shared.canOpenURL(url) else { return }
-
+		guard
+			let url = URL(string: itunesStorePrefix + albumSuffix),
+			UIApplication.shared.canOpenURL(url)
+		else {
+			return
+		}
 		UIApplication.shared.open(url)
 	}
 	
@@ -36,7 +49,10 @@ class DetailViewController: UIViewController {
 		view.backgroundColor = .systemBackground
 		
 		// Instantiate Album Info Controls
-		let albumImageView = UIImageView(image: UIImage(named: "tempImage")) // TEMP: REPLACE WITH LIVE
+		let albumImageView = UIImageView(image: UIImage(named: "placeholderImage"))
+		ImageCache.image(for: album.artworkURL) { image in
+			albumImageView.image = image
+		}
 		
 		let nameLabel = UILabel()
 		nameLabel.text = album.name
@@ -82,8 +98,9 @@ class DetailViewController: UIViewController {
 		let viewButton = UIButton()
 		viewButton.setTitle("View in iTunes Store", for: .normal)
 		viewButton.translatesAutoresizingMaskIntoConstraints = false
-		viewButton.backgroundColor = .systemBlue
-		viewButton.setTitleColor(.white, for: .normal)
+		viewButton.backgroundColor = .clear
+		viewButton.layer.cornerRadius = 10
+		viewButton.layer.backgroundColor = UIColor.systemBlue.cgColor
 		viewButton.addTarget(self, action: #selector(self.viewButtonTapped), for: .touchUpInside)
 		view.addSubview(viewButton)
 		
@@ -99,5 +116,6 @@ class DetailViewController: UIViewController {
 		viewButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
 		viewButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
 		viewButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
+		viewButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
 	}
 }

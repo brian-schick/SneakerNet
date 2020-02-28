@@ -32,11 +32,9 @@ enum FeedData {
 			guard
 				error == nil,
 				let data = data,
-				let response = response as? HTTPURLResponse,
-				response.statusCode == 200,
 				let feed = try? JSONDecoder().decode(RSSFeed.self, from: data)
-			else {
-				return
+				else {
+					return
 			}
 			
 			DispatchQueue.main.async {
@@ -47,6 +45,4 @@ enum FeedData {
 		
 		dataTask?.resume()
 	}
-	
 }
-
