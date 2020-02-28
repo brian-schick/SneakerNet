@@ -6,17 +6,6 @@
 	<array>
 		<string>itms</string>
 	</array>
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>Nike-TopAlbumsExample</string>
-			</array>
-			<key>CFBundleURLName</key>
-			<string>com.brianschick.Nike-TopAlbumsExample</string>
-		</dict>
-	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
